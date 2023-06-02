@@ -32,6 +32,6 @@ const words = ["ground", "control", "to", "major", "tom"];
 const results1 = map(words, word => word[0]);
 console.log(results1);
 
-console.log(assertArraysEqual(results1, ['g', 'c', 't', 'm']))
-console.log(assertArraysEqual(results1, ['g', 'c', 't', 'm', 't']))
-console.log(assertArraysEqual(results1, ['g', 'c', 't', 'm', 1]))
+assertArraysEqual(results1, ['g', 'c', 't', 'm']);
+assertArraysEqual(results1, ['g', 'c', 't', 'm', 't']);
+assertArraysEqual(results1, ['g', 'c', 't', 'm', 1]);
