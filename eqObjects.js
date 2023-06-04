@@ -26,23 +26,23 @@ const eqObjects = function(object1, object2) {
   const object2KeysArr = Object.keys(object2);
 
   // check if the objects have the same number of keys
-  if (object1KeysArr.length !== object2KeysArr.length) return false;
-
-  // loop through the keys for one of the obj
-  for (let key of object1KeysArr) {
-
-    // compare both objects' values for that key
-    if (!object1[key] === object2[key]) return false;
-
-    // if array comparisons need to be made
-    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-      if (eqArrays(object1[key], object2[key])) {
-        return true;
-      } else {
-        return false;
+  if (object1KeysArr.length !== object2KeysArr.length) {
+    return false;
+  } else {
+    // loop through the keys for one of the obj
+    for (let key of object1KeysArr) {
+      const obj1Val = object1[key];
+      const obj2Val = object2[key];
+      // if array comparisons need to be made
+      if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+        if (eqArrays(object1[key], object2[key])) {
+          return true;
+        } else {
+          return false;
+        }
       }
-    } else {
-      return false;
+      // check primitive values
+      if (obj1Val !== obj2Val) return false;
     }
   }
   return true;
@@ -75,4 +75,4 @@ const longSleeveMultiColorShirtObject = { size: "medium", colors: ["red", "blue"
 console.log(eqObjects(multiColorShirtObject, longSleeveMultiColorShirtObject)); // => false
 assertEqual(eqObjects(multiColorShirtObject, longSleeveMultiColorShirtObject), false);  // => false
 
-
+console.log(eqObjects({ a: '1', b: 2 }, { c: 3, a: '1' }));
