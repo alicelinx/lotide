@@ -1,6 +1,3 @@
-const assertEqual = require('./assertEqual');
-
-
 const head = function(arr) {
   let headOfArr;
   if (arr) {
@@ -8,7 +5,6 @@ const head = function(arr) {
   }
   return headOfArr;
 };
-
 
 
 module.exports = head;
